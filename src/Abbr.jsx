@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const Abbr = ({ users }) => {
-  const [abWomans, setAbWomans] = useState("Кликни на кнопку выше");
+const Abbr = ({ users, abWomans, setAbWomans }) => {
+  // const [abWomans, setAbWomans] = useState("Кликни на кнопку выше");
   const showAbbr = () => {
     setAbWomans(
       users
@@ -12,7 +12,7 @@ const Abbr = ({ users }) => {
   };
   return (
     <>
-      <p>{abWomans}</p>
+      {/* <p>{abWomans}</p> */}
       <button onClick={showAbbr}>Аббревиатуру</button>
     </>
   );

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Averageage = ({ users }) => {
-  const [averageAges, setAverageAges] = useState("Кликни на кнопку выше");
+const Averageage = ({ users, averageAges, setAverageAges }) => {
+  // const [averageAges, setAverageAges] = useState("Кликни на кнопку выше");
   const averageAgesPeople = () => {
     setAverageAges(
       users.reduce((accum, item) => accum + item.age, 0) / users.length
@@ -9,7 +9,7 @@ const Averageage = ({ users }) => {
   };
   return (
     <>
-      <p>{averageAges}</p>
+      {/* <p>{averageAges}</p> */}
       <button onClick={averageAgesPeople}>Средний возраст</button>
     </>
   );

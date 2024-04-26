@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-const OfAge = ({ users }) => {
-  const [ofAges, setOfAges] = useState("Кликни на кнопку выше");
+const OfAge = ({ users, ofAges, setOfAges }) => {
+  // const [ofAges, setOfAges] = useState("Кликни на кнопку выше");
   const ofAgesPeople = () => {
     setOfAges(users.every((item) => item.age > 18) ? "Да" : "Нет");
   };
 
   return (
     <>
-      <p>{ofAges}</p>
+      {/* <p>{ofAges}</p> */}
       <button onClick={ofAgesPeople}>Совершеннолетние</button>
     </>
   );
