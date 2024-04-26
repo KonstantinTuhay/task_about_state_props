@@ -1,12 +1,8 @@
 import React from "react";
 
-const SortPeople = ({ sortPeople, setSortPeople }) => {
-  const sortPeopl = () => {
-    setSortPeople(!sortPeople);
-  };
-
+const SortPeople = ({ sortPeople }) => {
   return (
-    <button onClick={sortPeopl}>
+    <button onClick={sortPeople}>
       Отсортировать всех от старшего к младшему
     </button>
   );

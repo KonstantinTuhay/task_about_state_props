@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const OfAge = ({ ofAges, setOfAge }) => {
-  const ofAge = () => {
-    setOfAge(!ofAges);
+const OfAge = ({ users }) => {
+  const [ofAges, setOfAges] = useState("Кликни на кнопку выше");
+  const ofAgesPeople = () => {
+    setOfAges(users.every((item) => item.age > 18) ? "Да" : "Нет");
   };
 
-  return <button onClick={ofAge}>Совершеннолетние</button>;
+  return (
+    <>
+      <p>{ofAges}</p>
+      <button onClick={ofAgesPeople}>Совершеннолетние</button>
+    </>
+  );
 };
 
 export default OfAge;

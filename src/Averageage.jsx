@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Averageage = ({ averageAges, setAverageAge }) => {
-  const averageAge = () => {
-    setAverageAge(!averageAges);
+const Averageage = ({ users }) => {
+  const [averageAges, setAverageAges] = useState("Кликни на кнопку выше");
+  const averageAgesPeople = () => {
+    setAverageAges(
+      users.reduce((accum, item) => accum + item.age, 0) / users.length
+    );
   };
-
   return (
-    <button
-      onClick={(event) => {
-        event.stopPropagation(); //почему не срабатывает отмена повторного нажатия
-        averageAge();
-      }}
-    >
-      Средний возраст
-    </button>
+    <>
+      <p>{averageAges}</p>
+      <button onClick={averageAgesPeople}>Средний возраст</button>
+    </>
   );
 };
 

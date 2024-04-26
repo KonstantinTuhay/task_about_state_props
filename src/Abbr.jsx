@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Abbr = ({ showFirstLetters, setShowFirstLetter }) => {
-  const showFirstLetter = () => {
-    setShowFirstLetter(!showFirstLetters);
+const Abbr = ({ users }) => {
+  const [abWomans, setAbWomans] = useState("Кликни на кнопку выше");
+  const showAbbr = () => {
+    setAbWomans(
+      users
+        .filter((item) => !item.isMan)
+        .map((item) => item.name[0])
+        .join("")
+    );
   };
-
   return (
-    <button
-      onClick={(event) => {
-        event.stopPropagation(); //почему не срабатывает отмена повторного нажатия
-        showFirstLetter();
-      }}
-    >
-      Аббревиатуру
-    </button>
+    <>
+      <p>{abWomans}</p>
+      <button onClick={showAbbr}>Аббревиатуру</button>
+    </>
   );
 };
 
