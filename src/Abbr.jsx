@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Abbr = ({ users, abWomans, setAbWomans }) => {
-  // const [abWomans, setAbWomans] = useState("Кликни на кнопку выше");
   const showAbbr = () => {
     setAbWomans(
       users
@@ -12,8 +11,7 @@ const Abbr = ({ users, abWomans, setAbWomans }) => {
   };
   return (
     <>
-      {/* <p>{abWomans}</p> */}
-      <button onClick={showAbbr}>Аббревиатуру</button>
+      <button onClick={showAbbr}>Аббревиатура из девочек</button>
     </>
   );
 };

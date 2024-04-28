@@ -1,7 +1,7 @@
 import React from "react";
 
-const Hide = ({ filteredMans }) => {
+const ShowMans = ({ filteredMans }) => {
   return <button onClick={filteredMans}>Вывести мальчиков</button>;
 };
 
-export default Hide;
+export default ShowMans;

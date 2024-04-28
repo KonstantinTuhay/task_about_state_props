@@ -3,7 +3,9 @@ import Abbr from "./Abbr";
 import Averageage from "./Averageage";
 import OfAge from "./OfAge";
 import SortPeople from "./SortPeople";
-import Hide from "./Hide";
+import ShowWomans from "./ShowWomans";
+import ShowMans from "./ShowMans";
+import Checkbox from "./Checkbox";
 
 function App() {
   const arr = [
@@ -13,13 +15,19 @@ function App() {
     { name: "Ваня", age: 30, isMan: true },
     { name: "Максим", age: 40, isMan: true },
   ];
+
   const [users, setUsers] = useState(arr);
   const [ofAges, setOfAges] = useState("Кликни на кнопку выше");
   const [averageAges, setAverageAges] = useState("Кликни на кнопку выше");
   const [abWomans, setAbWomans] = useState("Кликни на кнопку выше");
+  const [checked, setChecked] = useState(true);
+
+  const filteredWomans = () => {
+    setUsers((prevUsers) => prevUsers.filter((item) => !item.isMan));
+  };
 
   const filteredMans = () => {
-    setUsers((prevUsers) => prevUsers.filter((item) => !item.isMan));
+    setUsers((prevUsers) => prevUsers.filter((item) => item.isMan));
   };
 
   const sortPeople = () => {
@@ -40,7 +48,16 @@ function App() {
         ))}
       </p>
 
-      <Hide filteredMans={filteredMans} />
+      <Checkbox
+        checked={checked}
+        setChecked={setChecked}
+        filteredMans={filteredMans}
+        users={users}
+        setUsers={setUsers}
+      />
+
+      <ShowWomans filteredWomans={filteredWomans} />
+      <ShowMans filteredMans={filteredMans} />
 
       <Abbr users={users} abWomans={abWomans} setAbWomans={setAbWomans} />
 
